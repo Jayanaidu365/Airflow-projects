@@ -24,8 +24,8 @@ with DAG(
 
     # Fetch environment variables
     env = Variable.get("env", default_var="dev")
-    gcs_bucket = Variable.get("gcs_bucket", default_var="airflow-projects-bucket")
-    bq_project = Variable.get("bq_project", default_var="mythic-aloe-457912-d5")
+    gcs_bucket = Variable.get("gcs_bucket", default_var="airflow-projects-bucket-j")
+    bq_project = Variable.get("bq_project", default_var="handy-record-460714-f9")
     bq_dataset = Variable.get("bq_dataset", default_var=f"flight_data_{env}")
     tables = Variable.get("tables", deserialize_json=True)
 
@@ -68,9 +68,9 @@ with DAG(
         },
         "environment_config": {
             "execution_config": {
-                "service_account": "715970340101-compute@developer.gserviceaccount.com",
-                "network_uri": "projects/mythic-aloe-457912-d5/global/networks/default",
-                "subnetwork_uri": "projects/mythic-aloe-457912-d5/regions/us-central1/subnetworks/default",
+                "service_account": "319123636289-compute@developer.gserviceaccount.com",
+                "network_uri": "projects/handy-record-460714-f9/global/networks/default",
+                "subnetwork_uri": "projects/handy-record-460714-f9/regions/us-central1/subnetworks/default",
             }
         },
     }
@@ -79,7 +79,7 @@ with DAG(
         task_id="run_spark_job_on_dataproc_serverless",
         batch=batch_details,
         batch_id=batch_id,
-        project_id="mythic-aloe-457912-d5",
+        project_id="handy-record-460714-f9",
         region="us-central1",
         gcp_conn_id="google_cloud_default",
     )
